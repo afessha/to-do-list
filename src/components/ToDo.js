@@ -1,33 +1,35 @@
 import React, { useState } from "react";
+import "../App.css";
 function ToDO() {
   const [toDoInput, setToDoInput] = useState("");
   const [toDoList, setToDoList] = useState([]);
   const handleChange = (event) => {
     setToDoInput(event.target.value);
   };
-  const submit = () => {
+  const handleSubmit = () => {
     setToDoList(...toDoList, toDoInput);
     console.log(toDoList);
     setToDoInput("");
   };
 
   return (
-    <div>
+    <div className="todo-container">
       <input
         type="text"
         placeolder="please enter to do item"
         value={toDoInput}
         onChange={handleChange}
       />
-      <button type="button" onSubmit={submit}>
+      <button type="button" className="add" onSubmit={handleSubmit}>
         Add
       </button>
-      <p> My To do list is ....</p>
-      <ul>
-        {toDoList.map((listItem) => {
-          return <li> {listItem} </li>;
-        })}
-      </ul>
+      <div className="todo-list">
+        <ul>
+          {toDoList.map((listItem) => {
+            return <li> {listItem} </li>;
+          })}
+        </ul>
+      </div>
     </div>
   );
 }
