@@ -10,10 +10,23 @@
 .add {
   background-color: #e6a614;
   color: white;
+  height: 25px;
 }
 .todo-container {
   background-color: #1e1e28;
 }
 .todo-list {
+  margin-right: auto;
+  margin-left: auto;
   background-color: white;
+  color: black;
+  width: 300px;
+}
+.todo-container li {
+  text-align: left;
+  align-content: center;
+}
+.todo-input {
+  width: 250px;
+  height: 20px;
 }

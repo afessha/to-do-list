@@ -7,7 +7,7 @@ function ToDO() {
     setToDoInput(event.target.value);
   };
   const handleSubmit = () => {
-    setToDoList(...toDoList, toDoInput);
+    setToDoList(toDoList.concat(toDoInput));
     console.log(toDoList);
     setToDoInput("");
   };
@@ -15,18 +15,19 @@ function ToDO() {
   return (
     <div className="todo-container">
       <input
+        className="todo-input"
         type="text"
-        placeolder="please enter to do item"
+        placeholder="  New To-do"
         value={toDoInput}
         onChange={handleChange}
       />
-      <button type="button" className="add" onSubmit={handleSubmit}>
-        Add
+      <button type="button" className="add" onClick={handleSubmit}>
+        ADD
       </button>
       <div className="todo-list">
         <ul>
-          {toDoList.map((listItem) => {
-            return <li> {listItem} </li>;
+          {toDoList.map((listItem, index) => {
+            return <li key={index}> {listItem} </li>;
           })}
         </ul>
       </div>
