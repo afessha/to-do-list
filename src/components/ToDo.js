@@ -7,7 +7,7 @@ function ToDO() {
     setToDoInput(event.target.value);
   };
   const handleSubmit = () => {
-    if (toDoInput !== "") {
+    if (toDoInput.trim() !== "") {
       setToDoList(toDoList.concat(toDoInput));
       setToDoInput("");
     }

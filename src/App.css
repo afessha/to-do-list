@@ -1,6 +1,5 @@
 .App {
   text-align: center;
-  background-color: #1e1e28;
   color: white;
 }
 .header {
@@ -12,9 +11,7 @@
   color: white;
   height: 25px;
 }
-.todo-container {
-  background-color: #1e1e28;
-}
+
 .todo-list {
   margin-right: auto;
   margin-left: auto;
