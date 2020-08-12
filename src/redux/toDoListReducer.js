@@ -18,7 +18,7 @@ function toDoListReducer(state = INITAL_TODOS, action) {
     //         } else return toDo;
     //     });
     case TO_DELETE_ALL:
-      return state.splice(0, state.length);
+      return INITAL_TODOS;
     default:
       return state;
   }

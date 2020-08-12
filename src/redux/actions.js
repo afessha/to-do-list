@@ -16,5 +16,5 @@ export function toDoDelete(toDoId) {
   return { type: TO_DO_DELETE, toDoId };
 }
 export function toDeleteAll() {
-  return { type: TO_DO_DELETE };
+  return { type: TO_DELETE_ALL };
 }
