@@ -1,15 +1,15 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 import "../App.css";
-function ToDO() {
+import { toDoAdd, toDoDelete, toDeleteAll } from "../redux/actions";
+function ToDO(props) {
   const [toDoInput, setToDoInput] = useState("");
-  const [toDoList, setToDoList] = useState([]);
   const handleChange = (event) => {
     setToDoInput(event.target.value);
   };
   const handleSubmit = () => {
     if (toDoInput.trim() !== "") {
-      setToDoList(toDoList.concat(toDoInput));
+      props.addToDo(toDoInput);
       setToDoInput("");
     }
   };
@@ -28,16 +28,35 @@ function ToDO() {
       </button>
       <div className="todo-list">
         <ul>
-          {toDoList.map((listItem, index) => {
+          {props.toDoList.map((listItem, index) => {
             return <li key={index}> {listItem} </li>;
           })}
         </ul>
-        {toDoList.length !== 0 ? (
-          <button className="clear"> Clear</button>
+        {props.toDoList.length !== 0 ? (
+          <button
+            className="clear"
+            onClick={() => {
+              props.clearAll();
+            }}
+          >
+            Clear
+          </button>
         ) : null}
       </div>
     </div>
   );
 }
+const mapStateToProps = (state) => {
+  return {
+    toDoList: state.toDoList,
+  };
+};
 
-export default ToDO;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    addToDo: (toDo) => dispatch(toDoAdd(toDo)),
+    deleteToDo: (toDoId) => dispatch(toDoDelete(toDoId)),
+    clearAll: () => dispatch(toDeleteAll()),
+  };
+};
+export default connect(mapStateToProps, mapDispatchToProps)(ToDO);
