@@ -8,15 +8,10 @@ function toDoListReducer(state = INITAL_TODOS, action) {
       return [...state, action.initalToDos];
     case TO_DO_ADD:
       return [...state, action.toDo];
-    // case TO_DO_DELETE:
-    //     return state.map((toDo) => {
-    //         if (toDo.id === action.toDoId) {
-    //             return {
-    //                 ...booking,
-    //                 status: action.value,
-    //             };
-    //         } else return toDo;
-    //     });
+    case TO_DO_DELETE:
+      const index = state.indexOf(action.toDo);
+      return state.splice(index, 1);
+
     case TO_DELETE_ALL:
       return INITAL_TODOS;
     default:

@@ -12,8 +12,8 @@ export function toDoAdd(toDo) {
   return { type: TO_DO_ADD, toDo };
 }
 
-export function toDoDelete(toDoId) {
-  return { type: TO_DO_DELETE, toDoId };
+export function toDoDelete(toDo) {
+  return { type: TO_DO_DELETE, toDo };
 }
 export function toDeleteAll() {
   return { type: TO_DELETE_ALL };

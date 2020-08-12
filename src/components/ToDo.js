@@ -1,6 +1,13 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 import "../App.css";
+import List from "@material-ui/core/List";
+import ListItem from "@material-ui/core/ListItem";
+import ListItemSecondaryAction from "@material-ui/core/ListItemSecondaryAction";
+import ListItemText from "@material-ui/core/ListItemText";
+import Checkbox from "@material-ui/core/Checkbox";
+import IconButton from "@material-ui/core/IconButton";
+import DeleteIcon from "@material-ui/icons/Delete";
 import { toDoAdd, toDoDelete, toDeleteAll } from "../redux/actions";
 function ToDO(props) {
   const [toDoInput, setToDoInput] = useState("");
@@ -27,11 +34,26 @@ function ToDO(props) {
         ADD
       </button>
       <div className="todo-list">
-        <ul>
-          {props.toDoList.map((listItem, index) => {
-            return <li key={index}> {listItem} </li>;
-          })}
-        </ul>
+        {props.toDoList.length !== 0 ? (
+          <List>
+            {props.toDoList.map((todo, index) => (
+              <ListItem key={index.toString()} dense button>
+                <Checkbox tabIndex={-1} disableRipple />
+                <ListItemText primary={todo} />
+                <ListItemSecondaryAction>
+                  <IconButton
+                    aria-label="Delete"
+                    onClick={() => {
+                      props.deleteToDo(todo);
+                    }}
+                  >
+                    <DeleteIcon />
+                  </IconButton>
+                </ListItemSecondaryAction>
+              </ListItem>
+            ))}
+          </List>
+        ) : null}
         {props.toDoList.length !== 0 ? (
           <button
             className="clear"
