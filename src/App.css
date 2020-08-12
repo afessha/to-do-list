@@ -11,6 +11,14 @@
   color: white;
   height: 25px;
 }
+.clear {
+  margin-top: 5px;
+  margin-left: 250px;
+  margin-bottom: 2px;
+  background-color: coral;
+  color: white;
+  border-radius: 0.5em;
+}
 
 .todo-list {
   margin-right: auto;

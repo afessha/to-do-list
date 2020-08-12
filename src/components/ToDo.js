@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { connect } from "react-redux";
 import "../App.css";
 function ToDO() {
   const [toDoInput, setToDoInput] = useState("");
@@ -31,6 +32,9 @@ function ToDO() {
             return <li key={index}> {listItem} </li>;
           })}
         </ul>
+        {toDoList.length !== 0 ? (
+          <button className="clear"> Clear</button>
+        ) : null}
       </div>
     </div>
   );
