@@ -77,7 +77,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     addToDo: (toDo) => dispatch(toDoAdd(toDo)),
-    deleteToDo: (toDoId) => dispatch(toDoDelete(toDoId)),
+    deleteToDo: (toDo) => dispatch(toDoDelete(toDo)),
     clearAll: () => dispatch(toDeleteAll()),
   };
 };

@@ -9,8 +9,7 @@ function toDoListReducer(state = INITAL_TODOS, action) {
     case TO_DO_ADD:
       return [...state, action.toDo];
     case TO_DO_DELETE:
-      const index = state.indexOf(action.toDo);
-      return state.splice(index, 1);
+      return state.filter((item) => item !== action.toDo);
 
     case TO_DELETE_ALL:
       return INITAL_TODOS;
