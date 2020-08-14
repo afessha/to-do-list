@@ -20,6 +20,11 @@ function ToDO(props) {
       setToDoInput("");
     }
   };
+  const handleKeyPress = (event) => {
+    if (event.key === "Enter") {
+        handleSubmit();
+    }
+  };
 
   return (
     <div className="todo-container">
@@ -29,6 +34,7 @@ function ToDO(props) {
         placeholder="  New To-do"
         value={toDoInput}
         onChange={handleChange}
+        onKeyPress={handleKeyPress}
       />
       <button type="button" className="add" onClick={handleSubmit}>
         ADD
