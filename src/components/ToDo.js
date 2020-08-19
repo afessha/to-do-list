@@ -22,7 +22,7 @@ function ToDO(props) {
   };
   const handleKeyPress = (event) => {
     if (event.key === "Enter") {
-        handleSubmit();
+      handleSubmit();
     }
   };
 
@@ -32,6 +32,7 @@ function ToDO(props) {
         className="todo-input"
         type="text"
         placeholder="  New To-do"
+        autoFocus
         value={toDoInput}
         onChange={handleChange}
         onKeyPress={handleKeyPress}
@@ -45,7 +46,7 @@ function ToDO(props) {
             {props.toDoList.map((todo, index) => (
               <ListItem key={index.toString()} dense button>
                 <Checkbox tabIndex={-1} disableRipple />
-                <ListItemText primary={todo} />
+                <ListItemText primary={todo} className="completed" />
                 <ListItemSecondaryAction>
                   <IconButton
                     aria-label="Delete"
